@@ -1,0 +1,35 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "css-modules"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:css-modules/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "import/order": [
+      "warn",
+      {
+        "pathGroups": [
+          { "pattern": "react", "group": "builtin" },
+          { "pattern": "gatsby", "group": "builtin" },
+          { "pattern": "components/**/*", "group": "internal" }
+        ],
+        "groups": ["builtin", "external", "internal", "parent", "sibling"],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": { "order": "asc" },
+        "newlines-between": "always"
+      }
+    ]
+  }
+}
