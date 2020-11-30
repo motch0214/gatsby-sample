@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 require("dotenv").config()
 
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -8,6 +10,12 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        components: path.join(__dirname, "src/components"),
+      },
+    },
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-material-ui`,
