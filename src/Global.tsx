@@ -2,10 +2,12 @@ import React from "react"
 
 import { ThemeProvider } from "@material-ui/core"
 
-import "./styles/global.css"
-
 import { FirebaseContextProvider } from "./components/FirebaseContext"
 import theme from "./styles/theme"
+
+import "fontsource-noto-sans-jp"
+
+import "./styles/global.css"
 
 const Global: React.FC = ({ children }) => {
   return (
