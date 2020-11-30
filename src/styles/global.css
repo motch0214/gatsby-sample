@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .h-font {
+    height: 1em;
+  }
+}
+
+.MuiButtonBase-root:focus {
+  outline: 0;
+}

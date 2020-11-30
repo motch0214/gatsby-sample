@@ -1,0 +1,20 @@
+.card {
+  @apply border-gray-300 rounded-lg p-6 m-4 text-left no-underline;
+
+  flex-basis: 45%;
+  border-width: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover,
+.card:focus {
+  @apply text-primary border-primary outline-none;
+}
+
+.card h3 {
+  @apply mb-4 text-2xl;
+}
+
+.card p {
+  @apply m-0 text-xl leading-normal;
+}
