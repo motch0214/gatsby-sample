@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "baseUrl": "./src"
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./declaration.d.ts"],
   "exclude": ["node_modules"]
 }
