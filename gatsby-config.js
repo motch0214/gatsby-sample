@@ -39,6 +39,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-split-css`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
