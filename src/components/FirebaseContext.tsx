@@ -27,7 +27,7 @@ const initialize = async () => {
 }
 const promise = initialize()
 
-const getFirebase = () => promise
+export const getFirebase = (): Promise<Firebase | null> => promise
 
 const FirebaseContext = createContext<Firebase | null>(null)
 

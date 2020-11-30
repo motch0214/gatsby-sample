@@ -25,7 +25,8 @@
           { "pattern": "react", "group": "builtin" },
           { "pattern": "gatsby", "group": "builtin" },
           { "pattern": "components/**/*", "group": "internal" },
-          { "pattern": "assets/**/*", "group": "internal" }
+          { "pattern": "assets/**/*", "group": "internal" },
+          { "pattern": "analytics", "group": "internal" }
         ],
         "groups": ["builtin", "external", "internal", "parent", "sibling"],
         "pathGroupsExcludedImportTypes": ["builtin"],

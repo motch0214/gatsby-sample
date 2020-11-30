@@ -27,6 +27,7 @@ module.exports = {
       options: {
         components: path.join(__dirname, "src/components"),
         assets: path.join(__dirname, "src/assets"),
+        analytics: path.join(__dirname, "src/analytics"),
       },
     },
     `gatsby-plugin-postcss`,
