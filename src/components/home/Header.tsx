@@ -28,6 +28,14 @@ const Header: React.FC = () => {
         onClose={() => setAnchor(null)}
       >
         <MenuItem>
+          <Link className={styles.item} to="/privacy">
+            <div className={styles.icon}>
+              <InsertDriveFileIcon />
+            </div>
+            Privacy Policy
+          </Link>
+        </MenuItem>
+        <MenuItem>
           <Link className={styles.item} to="/gallary">
             <div className={styles.icon}>
               <ImageIcon />

@@ -1,0 +1,37 @@
+.container h1 {
+  @apply mb-4 font-extrabold text-3xl;
+}
+
+.container h2 {
+  @apply mt-10 text-2xl;
+}
+
+.container h3,
+.container h4 {
+  @apply mt-6 mb-3 text-xl;
+}
+
+.container p {
+  @apply my-2 leading-tight;
+}
+
+.container ul,
+.container ol {
+  @apply pl-10 my-3;
+}
+
+.container ul {
+  list-style-type: disc;
+}
+
+.container ol {
+  list-style-type: decimal;
+}
+
+.container li {
+  @apply mt-3;
+}
+
+.container a {
+  @apply text-primary;
+}

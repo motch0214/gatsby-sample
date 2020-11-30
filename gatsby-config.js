@@ -46,6 +46,26 @@ module.exports = {
         path: `${__dirname}/src/contents`,
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 480,
+              wrapperStyle: `align: center; margin-top: 12px; margin-bottom: 12px;`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              elements: [`h2`],
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
