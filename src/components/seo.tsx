@@ -1,72 +1,55 @@
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
 import { Helmet } from "react-helmet"
 
-const SEO: React.FC<{
-  title: string
+import MetaImage from "assets/images/meta.png"
+
+export interface SeoProps {
+  title?: string
   description?: string
-  lang?: string
-}> = ({ title, description, lang = "ja" }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+  image?: string
+}
+
+const SEO: React.FC<SeoProps> = ({ title, description, image }) => {
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          subtitle
+          description
+          author
+          twitter
         }
       }
-    `
-  )
+    }
+  `)
+
+  const metaTitle = title
+    ? `${title} - ${site.siteMetadata.title}`
+    : `${site.siteMetadata.title} - ${site.siteMetadata.subtitle}`
 
   const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+
+  const metaImage = image || MetaImage
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ]}
-    />
+    <Helmet>
+      <html lang="ja" prefix="og: http://ogp.me/ns#" />
+      <title>{metaTitle}</title>
+      {process.env.GATSBY_BUILD_PROFILE === "production" ? null : (
+        <meta key={`robots-noindex`} name="robots" content="noindex" />
+      )}
+      <meta name="description" content={metaDescription} />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={site.siteMetadata.title} />
+      <meta property="og:image" content={metaImage} />
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:site" content={site.siteMetadata.twitter} />
+    </Helmet>
   )
 }
 

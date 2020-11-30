@@ -3,17 +3,30 @@ require("dotenv").config()
 
 const path = require("path")
 
+const colors = require("./src/styles/colors")
+
+const site = {
+  title: "Gatsby",
+  subtitle: `Sample Project`,
+  description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+  iconPath: "./src/assets/images/gatsby-icon.png",
+  twitter: "@GamerzClip",
+}
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: site.title,
+    subtitle: site.subtitle,
+    description: site.description,
+    twitter: site.twitter,
+    author: `aifie inc.`,
   },
   plugins: [
     {
       resolve: "gatsby-plugin-root-import",
       options: {
         components: path.join(__dirname, "src/components"),
+        assets: path.join(__dirname, "src/assets"),
       },
     },
     `gatsby-plugin-postcss`,
@@ -29,8 +42,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `contents`,
+        path: `${__dirname}/src/contents`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -38,13 +51,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: site.title,
+        short_name: site.title,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: colors["background-color"],
+        theme_color: colors["theme-color"],
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: site.iconPath,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
