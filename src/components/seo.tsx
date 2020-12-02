@@ -32,7 +32,7 @@ const SEO: React.FC<SeoProps> = ({ title, description, image }) => {
 
   const metaDescription = description || site.siteMetadata.description
 
-  const metaImage = image || MetaImage
+  const metaImage = image || `${process.env.GATSBY_SITE_URL}${MetaImage}`
 
   return (
     <Helmet>
