@@ -11,13 +11,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   await graphql(`
     {
       markdowns: allMarkdownRemark(
-        filter: { fileAbsolutePath: { glob: "**/*.md" } }
+        filter: { fileAbsolutePath: { glob: "**/documents/*.md" } }
       ) {
-        edges {
-          node {
-            frontmatter {
-              path
-              template
+        nodes {
+          id
+          frontmatter {
+            template
+          }
+          parent {
+            ... on File {
+              name
             }
           }
         }
@@ -30,10 +33,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       return
     }
 
-    result.data.markdowns.edges.forEach(({ node: md }) => {
+    result.data.markdowns.nodes.forEach((node) => {
       createPage({
-        path: md.frontmatter.path,
-        component: templates[md.frontmatter.template],
+        path: node.parent.name,
+        component: templates[node.frontmatter.template],
+        context: { id: node.id },
       })
     })
   })

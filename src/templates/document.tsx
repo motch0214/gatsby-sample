@@ -25,8 +25,8 @@ const DocumentTemplate: React.FC<PageProps<DataProps>> = ({ data }) => {
 }
 
 export const query = graphql`
-  query($path: String!) {
-    md: markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query($id: String!) {
+    md: markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title

@@ -1,5 +1,4 @@
 ---
-path: "/privacy"
 template: "document"
 title: "プライバシーポリシー"
 ---
