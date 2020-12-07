@@ -9,7 +9,7 @@ const CinnabarImage: React.FC = () => {
       placeholderImage: file(relativePath: { eq: "images/1280.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

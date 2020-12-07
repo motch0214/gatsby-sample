@@ -9,7 +9,7 @@ const MadotsukiImage: React.FC = () => {
       placeholderImage: file(relativePath: { eq: "images/027.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
