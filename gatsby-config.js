@@ -10,7 +10,7 @@ const site = {
   subtitle: `Sample Project`,
   description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
   iconPath: "./src/assets/images/gatsby-icon.png",
-  twitter: "@GamerzClip",
+  twitter: null,
 }
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
     title: site.title,
     subtitle: site.subtitle,
     description: site.description,
-    twitter: site.twitter,
+    twitter: site.twitter || "",
     author: `aifie inc.`,
   },
   plugins: [

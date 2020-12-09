@@ -48,7 +48,9 @@ const SEO: React.FC<SeoProps> = ({ title, description, image }) => {
       <meta property="og:site_name" content={site.siteMetadata.title} />
       <meta property="og:image" content={metaImage} />
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:site" content={site.siteMetadata.twitter} />
+      {site.siteMetadata.twitter ? (
+        <meta property="twitter:site" content={site.siteMetadata.twitter} />
+      ) : null}
     </Helmet>
   )
 }
