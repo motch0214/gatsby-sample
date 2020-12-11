@@ -1,6 +1,6 @@
 import React from "react"
 
-import { ThemeProvider } from "@material-ui/core"
+import ThemeProvider from "@material-ui/styles/ThemeProvider"
 
 import { FirebaseContextProvider } from "./components/FirebaseContext"
 import theme from "./styles/theme"
